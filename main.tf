@@ -41,25 +41,6 @@ resource "azurerm_network_interface" "my_nic" {
   }
 }
 
- //creating a storage account
-resource "azurerm_storage_account" "storage" {
-  name                     = "Tauqeer-storage-007" ///should be unique
-  resource_group_name      = azurerm_resource_group.example.name
-  location                 = azurerm_resource_group.example.location
-  account_tier             = "Standard"
-  account_replication_type = "LRS"
-
-  tags = {
-    environment = "staging"
-  }
-}
-
-// creating a container to save the content
-resource "azurerm_storage_container" "container" {
-  name                  = "TFbackend"  //general name
-  storage_account_name  = azurerm_storage_account.storage.name
-  container_access_type = "private"
-}
 
 // creating a vm
 resource "azurerm_linux_virtual_machine" "my_vm" {
