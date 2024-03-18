@@ -1,1 +1,1 @@
-# initializing Azure with 
+# initializing Azure with Terraform
